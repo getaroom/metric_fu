@@ -6,10 +6,11 @@ module MetricFu
   # course, in order to use these metrics, their respective gems must
   # be installed on the system.
   AVAILABLE_METRICS = [:churn, :flog, :flay, :reek,
-                       :roodi, :rcov,
+                       :roodi,
                       :hotspots]
 
   AVAILABLE_METRICS << :saikuro unless RUBY_VERSION == '1.9.2'
+  AVAILABLE_METRICS << :rcov if RUBY_VERSION < '1.9'
 
   AVAILABLE_GRAPHS = [:flog, :flay, :reek, :roodi, :rcov, :rails_best_practices]
   AVAILABLE_GRAPH_ENGINES = [:gchart, :bluff]
